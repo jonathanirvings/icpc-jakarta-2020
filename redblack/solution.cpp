@@ -15,7 +15,7 @@ tdata p[maxn];
 int fac[maxn] = {1};
 int nck[maxn][maxn] = {1};
 vector<pair<int, int>> segment;
-vector<int> size;
+vector<int> _size;
 
 int num[maxn][maxn];
 
@@ -48,10 +48,10 @@ int f(int L, int R, int k) {
 
 int dp_g[maxn][maxn];
 int g(int x, int k) {
-  if (x == (int)size.size()) return k == 0;
+  if (x == (int)_size.size()) return k == 0;
   if (dp_g[x][k] != -1) return dp_g[x][k];
   int &ret = dp_g[x][k] = 0;
-  for (int i = 0; i <= min(size[x], k); ++i) {
+  for (int i = 0; i <= min(_size[x], k); ++i) {
     ret = (ret + (ll)num[x][i] * g(x+1, k-i) % mod) % mod;
   }
   return ret;
@@ -122,7 +122,7 @@ int main(int argc, char *argv[]) {
   }
 
   for (int i = 0; i < (int)segment.size(); ++i)
-    size.push_back(segment[i].second-segment[i].first-1);
+    _size.push_back(segment[i].second-segment[i].first-1);
 
   memset(dp_f, -1, sizeof(dp_f));
   for (int i = 0; i < (int)segment.size(); ++i)
@@ -134,9 +134,9 @@ int main(int argc, char *argv[]) {
   
   int n_way_inter = 1;
   int m_var = n_var;
-  for (int i = 0; i < (int)size.size(); ++i) {
-    n_way_inter = (ll)n_way_inter * nck[m_var][size[i]] % mod;
-    m_var -= size[i];
+  for (int i = 0; i < (int)_size.size(); ++i) {
+    n_way_inter = (ll)n_way_inter * nck[m_var][_size[i]] % mod;
+    m_var -= _size[i];
   }
 
   int n_way_fixed = (ll)fac[n_fixed] * nck[M][n_fixed] % mod;

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+#define data _data
+
 struct dt{
 	int x,y;
 };
