@@ -64,4 +64,18 @@ Note that while there is only one official published solution, we have a lot of 
 
 ## Errata
 
-None.
+Note that the following announcement for problem J was broadcasted to all teams during the contest:
+  
+``` 
+There is a minor typo in the problem text for this problem.
+
+On the 3rd bullet point of the "Explanation for the sample input/output #1",
+the distance between two neighbouring tokens should be "0, 0, 0, 9" instead of
+"0, 0, 0, 10".
+The corrected problem text has been uploaded. Please re-download the problem
+text if you would like to get the updated problem text.
+
+We are sorry for the inconvenience.
+```
+
+The soft copy of the problem statement provided in this repository is the one distributed after the fix was made.
